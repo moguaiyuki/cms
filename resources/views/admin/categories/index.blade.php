@@ -5,7 +5,7 @@
     <h1>Categories</h1>
 
     @if (Session::has('deleted_category'))
-        <p class="bg-danger">{{sesison('deleted_category')}}</p>
+        <p class="bg-danger">{{session('deleted_category')}}</p>
     @endif
 
     <div class="col-sm-6">
