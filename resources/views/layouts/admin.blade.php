@@ -152,7 +152,7 @@
                             </li>
 
                             <li>
-                                <a href="{{--route('admin.comments.index')--}}">All Comments</a>
+                                <a href="{{route('comments.index')}}">All Comments</a>
                             </li>
 
                         </ul>
@@ -166,12 +166,6 @@
                             <li>
                                 <a href="{{route('categories.index')}}">All Categories</a>
                             </li>
-                            <li>
-                                <a href="{{route('categories.create')}}">Create Categories</a>
-                            </li>
-
-
-
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
@@ -181,11 +175,11 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{--route('admin.media.index')--}}">All Media</a>
+                                <a href="{{route('media.index')}}">All Media</a>
                             </li>
 
                             <li>
-                                <a href="{{--route('admin.media.create')--}}">Upload Media</a>
+                                <a href="{{route('media.create')}}">Upload Media</a>
                             </li>
 
                         </ul>
