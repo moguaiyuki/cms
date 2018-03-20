@@ -52,4 +52,9 @@ class Post extends Model
         ];
     }
 
+    public function placeholder()
+    {
+        return "http://placehold.it/700x200";
+    }
+
 }

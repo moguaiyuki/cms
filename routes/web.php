@@ -19,11 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
+Route::get('post/{id}', ['as' => 'home.post', 'uses' => 'AdminPostsController@post']);
 
-Route::group(['middleware'=>'admin'], function() {
+Route::group(['middleware' => 'admin'], function () {
 
-    Route::get('/admin', function() {
+    Route::get('/admin', function () {
         return view('admin.index');
     });
 
@@ -39,8 +39,18 @@ Route::group(['middleware'=>'admin'], function() {
 
     Route::resource('admin/comment/replies', 'CommentRepliesController');
 
+    Route::delete('admin/delete/media', 'AdminMediaController@deleteMedia');
+
 });
 
-Route::group(['middleware'=>'auth'], function() {
+Route::group(['middleware' => 'auth'], function () {
     Route::post('comment/reply', 'CommentRepliesController@createReply');
 });
+
+//name route
+/*Route::resource('admin/categories', 'AdminCategoriesController', ['name' => [
+    'index' => 'admin.categories.index',
+    'create' => 'admin.categories.create',
+    'store' => 'admin.categories.store',
+    'edit' => 'admin.categories.edit',
+]]);*/

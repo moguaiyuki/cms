@@ -20,16 +20,38 @@
     <hr>
 
     <!-- Preview Image -->
-    <img class="img-responsive" src="{{$post->photo ? $post->photo->file : ''}}" alt="">
+    <img class="img-responsive" src="{{$post->photo ? $post->photo->file : $post->placeHolder()}}" alt="">
 
     <hr>
 
     <!-- Post Content -->
-    <p>{{$post->body}}</p>
+    <p>{!!  $post->body !!}</p>
 
     <hr>
 
-    @if (Session::has('comment_message'))
+    <div id="disqus_thread"></div>
+    <script>
+
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://cms-test.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//cms-test.disqus.com/count.js" async></script>
+
+    {{--@if (Session::has('comment_message'))
         {{session('comment_message')}}
     @endif
     <!-- Blog Comments -->
@@ -62,8 +84,8 @@
         @foreach($comments as $comment)
             <div class="media">
                 <a class="pull-left" href="#">
-                    {{--<img height="64" class="media-object"--}}
-                         {{--src="{{$comment->user->photo ? $comment->user->photo->file : ''}}" alt="">--}}
+                    --}}{{--<img height="64" class="media-object"--}}{{--
+                         --}}{{--src="{{$comment->user->photo ? $comment->user->photo->file : ''}}" alt="">--}}{{--
                     <img height="64" class="media-object"
                          src="{{Auth::user()->gravatar}}" alt="">
                 </a>
@@ -115,7 +137,7 @@
                 </div>
             </div>
         @endforeach
-    @endif
+    @endif--}}
 @stop
 
 @section('scripts')
